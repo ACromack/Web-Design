@@ -1,3 +1,5 @@
+import { OrbitControls } from './module/OrbitControls.js';
+
 // Initial three.js Setup
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -8,9 +10,11 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
+const controls = new OrbitControls( camera, renderer.domElement );
+
 camera.position.z = 100;
 
-
+controls.update();
 
 function createCube() {
     // Create a Cube
@@ -38,13 +42,29 @@ function rotateShape(shape) {
     shape.rotation.y += 0.01;
 }
 
+var goRight = true;
+
+function translateShape(shape) {
+    if(shape.position.x === 100){
+        goRight = false;
+    } else if(shape.position.x === -100) {
+        goRight = true;
+    }
+
+    if(goRight) {
+        shape.position.x += 0.5;
+    } else {
+        shape.position.x -= 0.5;
+    }
+}
+
 // Animate the Cube
 function animate() {
     requestAnimationFrame( animate );
-    //cube.rotation.x += 0.01;
-    //cube.rotation.y += 0.01;    
     rotateShape(knot);
     rotateShape(cube);
+    translateShape(cube);
+    controls.update();
     renderer.render( scene, camera );
 }
 animate();
