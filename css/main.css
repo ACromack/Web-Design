@@ -1,0 +1,109 @@
+p {
+    color: blue;
+}
+
+.loadingSpinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Weird Loader CSS - @coding_dev_ on Instagram */
+svg {
+    width: 114px;
+    height: 114px;
+    /* display: flex; */
+}
+.circle {
+    fill: none;
+    stroke-width: 10px;
+    stroke: rgb(19,18,18);
+}
+.loader {
+    fill: none;
+    stroke-width: 10px;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke-dasharray: 360;
+    stroke-dashoffset: 100;
+    stroke: rgb(244, 106, 216);
+    animation: load 10s infinite;
+}
+
+@keyframes load {
+    0% {
+        stroke-dasharray: 360;
+    }
+    50% {
+        stroke-dasharray: 1;
+    }
+    100% {
+        stroke-dasharray: 360;
+    }
+}
+/* End of Weird Loader CSS */
+
+/* Typing Effect CSS - @coding_dev_ on Instagram */
+.typing {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.typing-effect {
+    width: 44ch;
+    animation: typing 4s steps(44), effect 5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: monospace;
+    font-size: 3rem;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes effect {
+    50% {
+        border-color: transparent;
+    }
+}
+/* End of Typing Effect */
+
+/* Menu Bar */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: rgb(149, 65, 132);
+  }
+  
+  .active {
+    background-color: rgb(244, 106, 216);
+  }
+  /* End of Menu Bar */
